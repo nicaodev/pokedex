@@ -3,6 +3,6 @@
 // https://sass-lang.com/documentation/breaking-changes/slash-div
 
 @function rem-calc($size) {
-  $value: calc($size / 16);
-  @return #{$value}rem;
+	$value: calc($size / 16);
+	@return #{$value}rem;
 }
