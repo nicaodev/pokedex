@@ -1,28 +1,25 @@
-<poke-search (emmitSearch)="getBuscaPokemon($event)" ></poke-search>
+<poke-search (emmitSearch)="getBuscaPokemon($event)"></poke-search>
 
 <section class="listagemItens">
-<ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
+  <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
     <a [routerLink]="['details', pokemon.status.id]" class="pokemon" *ngIf="pokemon.status">
-        <section class="pokemon__status">
-            <h2>
-              {{ pokemon.name }}
-            </h2>
+      <section class="pokemon__status">
+        <h2>
+          {{ pokemon.name }}
+        </h2>
 
-            <ul>
-              <li *ngFor="let value of pokemon.status.types">
-                {{value.type.name}}
-              </li>
-            </ul>
-          </section>
+        <ul>
+          <li *ngFor="let value of pokemon.status.types">
+            {{value.type.name}}
+          </li>
+        </ul>
+      </section>
 
-          <section class="pokemon__image">
-            <img
-              [src]="pokemon.status.sprites.other.dream_world.front_default"
-              [alt]="pokemon.name"
-            >
-          </section>
+      <section class="pokemon__image">
+        <img [src]="pokemon.status.sprites.other.dream_world.front_default" [alt]="pokemon.name">
+      </section>
     </a>
-</ng-template>
+  </ng-template>
 </section>
 
-
+<img src="assets/error.png" alt="Erro ao carregar dados." width="100%" *ngIf="apiError">
